@@ -14,5 +14,5 @@ Route::get('/game/1', [TrueGameController::class, 'getGameData']);
 
 Route::middleware('auth_api')->group(function () {
     Route::get('/user', [UserController::class, 'getUser']);
-
+    Route::post('/user/changeFullname', [UserController::class, 'changeUserFullname']);
 });
