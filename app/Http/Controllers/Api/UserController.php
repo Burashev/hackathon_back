@@ -26,7 +26,7 @@ class UserController extends BaseController
 
     public function getUserStatistic()
     {
-        return Auth::user()->statistic;
+        return $this->sendResponse('Successful get statistic', StatisticResource::collection(Auth::user()->statistic));
     }
 
     public function postUserStatistic(Request $request)
