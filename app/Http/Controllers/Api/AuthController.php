@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use Laravolt\Avatar\Avatar;
 
 class AuthController extends BaseController
 {
@@ -46,12 +47,14 @@ class AuthController extends BaseController
         if ($validator->fails()) {
             return $this->sendError('Validation error', $validator->errors(), 400);
         }
+        $avatar = new Avatar();
 
         $user = User::query()->create([
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'login' => Str::random(14),
             'api_token' => Str::random(32),
+            'avatar' => $avatar->create(Str::random(2))->toBase64(),
         ]);
 
         return $this->sendResponse('User created', UserResource::make($user));

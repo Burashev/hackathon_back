@@ -8,6 +8,7 @@ use App\Http\Resources\UserResource;
 use App\Models\GamesStatistic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Laravolt\Avatar\Avatar;
 
 class UserController extends BaseController
 {
@@ -18,8 +19,10 @@ class UserController extends BaseController
 
     public function changeUserFullname(Request $request)
     {
+        $avatar = new Avatar();
         Auth::user()->update([
-            'fullname' => $request->fullname
+            'fullname' => $request->fullname,
+            'avatar' => $avatar->create($request->fullname)
         ]);
         return $this->sendResponse('Successful change fullname', UserResource::make(Auth::user()));
     }
