@@ -14,5 +14,7 @@ Route::get('/game/1', [TrueGameController::class, 'getGameData']);
 
 Route::middleware('auth_api')->group(function () {
     Route::get('/user', [UserController::class, 'getUser']);
+    Route::get('/user/statistic', [UserController::class, 'getUserStatistic']);
+    Route::post('/user/statistic/add', [UserController::class, 'postUserStatistic']);
     Route::post('/user/changeFullname', [UserController::class, 'changeUserFullname']);
 });

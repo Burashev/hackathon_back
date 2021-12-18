@@ -42,4 +42,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function statistic(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(GamesStatistic::class);
+    }
 }
