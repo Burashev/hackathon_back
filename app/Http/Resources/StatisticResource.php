@@ -17,7 +17,8 @@ class StatisticResource extends JsonResource
         return [
             'game_title' => $this->game->title,
             'score' => $this->score,
-            'score_max' => $this->score_max
+            'score_max' => $this->score_max,
+            'date' => $this->created_at->format('d.m.Y')
         ];
     }
 }
