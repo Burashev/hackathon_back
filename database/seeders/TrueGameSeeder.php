@@ -34,5 +34,23 @@ class TrueGameSeeder extends Seeder
             'correct' => 1,
             'game_id' => 1
         ]);
+        TrueGame::query()->create([
+            'question' => 'Мәктәп',
+            'answer' => 'Школа',
+            'correct' => 1,
+            'game_id' => 1
+        ]);
+        TrueGame::query()->create([
+            'question' => 'Әни',
+            'answer' => 'Папа',
+            'correct' => 0,
+            'game_id' => 1
+        ]);
+        TrueGame::query()->create([
+            'question' => 'Кыш',
+            'answer' => 'Лето',
+            'correct' => 0,
+            'game_id' => 1
+        ]);
     }
 }

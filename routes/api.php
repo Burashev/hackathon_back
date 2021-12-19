@@ -11,6 +11,7 @@ Route::post('/register', [AuthController::class, 'postRegister']);
 
 Route::get('/games', [GameController::class, 'getGames']);
 Route::get('/game/1', [TrueGameController::class, 'getGameData']);
+Route::get('/game/2', [TrueGameController::class, 'getGameData']);
 
 Route::middleware('auth_api')->group(function () {
     Route::get('/user', [UserController::class, 'getUser']);

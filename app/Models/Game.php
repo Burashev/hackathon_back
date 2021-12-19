@@ -12,4 +12,8 @@ class Game extends Model
     public function trueGames() {
         return $this->hasMany(TrueGame::class);
     }
+
+    public function tatRusGames() {
+        return $this->hasMany();
+    }
 }
